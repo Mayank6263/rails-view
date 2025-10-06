@@ -9,13 +9,13 @@ class UsersController < ApplicationController
   end
 
   def create
-    #post request is going to execute here
+
     @user = User.new(user_params)
     if @user.save
-      flash[:notice] = " #{@user.name} Successfully Created"
+      flash[:notice] = "Succesfully Created #{@user.name} User."
       render :index
     else
-      flash.now[:notice] = "Error in Creation"
+      flash[:notice] = "Error in Creating User check credentials."
       render :new
     end
   end
