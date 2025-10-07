@@ -1,9 +1,11 @@
 class UsersController < ApplicationController
   def index
+    # byebug
     @users = User.all
   end
 
   def new
+    # byebug
     #only for get request
     @user = User.new
   end
@@ -13,14 +15,17 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       flash[:notice] = "Succesfully Created #{@user.name} User."
-      render :index
+      redirect_to users_url
     else
-      flash[:notice] = "Error in Creating User check credentials."
-      render :new
+      # flash[:notice] = "Error in Creating User check credentials."
+      render :new, status: :unprocessable_entity
     end
   end
 
   def show
+    # id = params.extract_value(:id)
+    # @user = User.find(id)
+
     @user = User.find(params[:id])
     # render plain: "name :- #{user[:name]}, 
     # \nusername :- #{user[:username]}, 
@@ -39,14 +44,17 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     if @user.update(user_params)
       flash[:notice] = " # Successfully Updated"
-      render :index
+      redirect_to '/users'
     else
-      flash[:notice] = "Failed To update"
-      render :edit
+      render :new, status: :unprocessable_entity
     end
   end
 
-  def delete
+  def destroy
+    @user = User.find(params[:id])
+    @user.destroy
+    redirect_to users_url
+    flash[:notice] = "#{@user.name}User is Deleted Succesfully."
   end
 
   private

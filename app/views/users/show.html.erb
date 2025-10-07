@@ -9,10 +9,20 @@
   </thead>
   <tbody>
     <tr>
-      <td><%= @user.id%></td>
-      <td><%= @user.name%></td>
-      <td><%= @user.username%></td>
-      <td><%= @user.email%></td> 
+<%# WORKING FINE WITH User.find(params.extract_value(:id)) %>
+      <%# <% @user.each do |user|%>
+       <%# <td><%= user.id %></td>
+       <%# <td><%= user.name %></td>
+       <%# <td><%= user.username %></td>
+       <%# <td><%= user.email %></td>
+      <%# <%end%>
+
+
+<%# WORKING FINE WITH User.find(params[:id]) %>
+      <td><%= @user.id %></td>
+      <td><%= @user.name %></td>
+      <td><%= @user.username %></td>
+     <td><%= @user.email %></td> 
     </tr>
   </tbody>
 </table>
