@@ -1,0 +1,11 @@
+<%= form_with model: @user do |form| %>
+	<%= form.text_field :name, placeholder: "name" %><br>
+	<%= @user.errors.full_messages[0] %>
+	<%= form.text_field :username, placeholder: "username" %><br>
+	<%= @user.errors.full_messages[1] %>
+	<%= form.text_field :email, placeholder: "Email" %><br>
+	<%= @user.errors.full_messages[2] %>
+	<%= form.text_field :password, placeholder: "Password" %><br>
+	<%= @user.errors.full_messages[3] %><br>
+	<%= form.submit "Submit"%>
+<%end%>
