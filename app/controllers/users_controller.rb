@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  layout "custom"
   def index
     # byebug
     @users = User.all
@@ -14,8 +15,8 @@ class UsersController < ApplicationController
 
     @user = User.new(user_params)
     if @user.save
-      flash[:notice] = "Succesfully Created #{@user.name} User."
-      redirect_to users_url
+      # flash[:notice] = "Succesfully Created #{@user.name} User."
+      redirect_to users_url, notice: "Succesfully Created #{@user.name} User."
     else
       # flash[:notice] = "Error in Creating User check credentials."
       render :new, status: :unprocessable_entity
