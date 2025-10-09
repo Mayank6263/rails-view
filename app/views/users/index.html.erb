@@ -3,11 +3,11 @@
 <% end %>
 
 
-<h1>Users#index</h1>
+<h1 style="text-align: center;">Users#index</h1>
+<div style="display: flex; justify-content: center; margin-bottom: 2%;">
   <table border="1px solid black" style="border-collapse: collapse;">
     <thead>
       <tr >
-        
         <th>Name</th>
         <th colspan="2">Actions</th>
       </tr>
@@ -15,13 +15,18 @@
     <tbody>
       <% listinguser(@users).each do |user| %>
       <tr >
-        <td><%= time_ago_in_words(user.created_at) %></td>
          <td style="padding: 8px;"><%= link_to user.username, user_path(user) %></td> 
         <td style="padding: 8px;"><%= link_to "Edit", edit_user_path(user) %></td>
         <td style="padding: 8px;"><%= link_to "Destroy", user_path(user), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }%></td>
       </tr>
       <% end %>
+      <%# <% if current_page?(controller: :users, action: :index) %>
+        <%# <h3>This is users controller's action index</h3> %>
+      <%#<% end %>
+      <%# URLindex:- <%= url_for(action: :index)%> 
     </tbody>
   </table>
-  <br>
-  <%= link_to "New User", new_user_path %>
+</div>
+<div style="display: flex; justify-content: center; ">
+  <%= link_to "New User", new_user_path, style: " border: 1px solid black; text-decoration: none; color:white; background-color: green" %>
+</div>
