@@ -64,3 +64,7 @@ group :test do
 end
 
 gem "byebug", "~> 12.0"
+
+gem "devise", "~> 4.9"
+
+gem "bcrypt", "~> 3.1"

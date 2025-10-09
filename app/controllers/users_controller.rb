@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   layout "custom"
+  before_action :set_user, only: %w[edit show update destroy]
   def index
     # byebug
     @users = User.all
@@ -27,7 +28,6 @@ class UsersController < ApplicationController
     # id = params.extract_value(:id)
     # @user = User.find(id)
 
-    @user = User.find(params[:id])
     # render plain: "name :- #{user[:name]}, 
     # \nusername :- #{user[:username]}, 
     # \nE-mail :- #{user[:email]},"
@@ -37,12 +37,10 @@ class UsersController < ApplicationController
 
   def edit
     #only for get request 
-    @user = User.find(params[:id])
   end
 
   def update
     #put and patch request is going to execute here
-    @user = User.find(params[:id])
     if @user.update(user_params)
       flash[:notice] = " # Successfully Updated"
       redirect_to '/users'
@@ -52,7 +50,6 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    @user = User.find(params[:id])
     @user.destroy
     redirect_to users_url
     flash[:notice] = "#{@user.name}User is Deleted Succesfully."
@@ -61,5 +58,10 @@ class UsersController < ApplicationController
   private
   def user_params
     params.require(:user).permit(:username, :name, :email, :password)
+  end
+
+  def set_user
+    @user = User.find_by(id: params[:id])
+    # render json: {message: "User not found with this id: #{params[:id]}"} unless @user
   end
 end
