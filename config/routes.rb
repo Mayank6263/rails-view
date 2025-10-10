@@ -8,7 +8,7 @@ Rails.application.routes.draw do
 
 
   resources :posts
-  # resources :users
+  resources :users
 
 end
 # chrome://flags/#devtools-project-settings

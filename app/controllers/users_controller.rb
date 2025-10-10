@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+=begin
   layout "custom"
   before_action :set_user, only: %w[edit show update destroy]
   def index
@@ -14,14 +15,14 @@ class UsersController < ApplicationController
 
   def create
 
-    @user = User.new(user_params)
-    if @user.save
-      # flash[:notice] = "Succesfully Created #{@user.name} User."
-      redirect_to users_url, notice: "Succesfully Created #{@user.name} User."
-    else
-      # flash[:notice] = "Error in Creating User check credentials."
-      render :new, status: :unprocessable_entity
-    end
+    # @user = User.new(user_params)
+    # if @user.save
+    #   # flash[:notice] = "Succesfully Created #{@user.name} User."
+    #   redirect_to users_url, notice: "Succesfully Created #{@user.name} User."
+    # else
+    #   # flash[:notice] = "Error in Creating User check credentials."
+    #   render :new, status: :unprocessable_entity
+    # end
   end
 
   def show
@@ -64,4 +65,5 @@ class UsersController < ApplicationController
     @user = User.find_by(id: params[:id])
     # render json: {message: "User not found with this id: #{params[:id]}"} unless @user
   end
+=end
 end
