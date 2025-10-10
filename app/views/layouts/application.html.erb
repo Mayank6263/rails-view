@@ -23,8 +23,13 @@
   </head>
 
   <body>
-    <%# <%= render "partials/header" %> 
+    <%= render "partials/header" %>
+    <% if flash[:alert] %>
+      <%= flash[:alert] %>
+    <% else flash[:notice] %>
+      <%= flash[:notice] %>
+    <% end %>
     <%= yield %>
-    <%# <%= render "partials/footer" %> 
+    <%= render "partials/footer" %>
   </body>
 </html>

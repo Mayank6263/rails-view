@@ -17,6 +17,16 @@ Rails.application.configure do
   # Enable server timing.
   config.server_timing = true
 
+  # config.action_mailer.delivery_method = :smtp
+  # config.action_mailer.smtp_settings = {
+  # address:              'smtp.gmail.com',
+  # port:                 587,
+  # domain:               'localhost:3000',
+  # user_name:            '<RailsViews@gmail.com>',
+  # password:             'jfyqunuhhlddwaet',
+  # authentication:       'plain',
+  # enable_starttls_auto: true  }
+
   # Enable/disable Action Controller caching. By default Action Controller caching is disabled.
   # Run rails dev:cache to toggle Action Controller caching.
   if Rails.root.join("tmp/caching-dev.txt").exist?
@@ -26,6 +36,10 @@ Rails.application.configure do
   else
     config.action_controller.perform_caching = false
   end
+
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.raise_delivery_errors = true
+  # config.action_mailer.default_options = {from: '<0863cs201085@piemr.edu.in>'}
 
   # Change to :null_store to avoid any caching.
   config.cache_store = :memory_store

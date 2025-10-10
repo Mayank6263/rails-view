@@ -2,8 +2,25 @@
   <%= flash[:notice] %>
 <% end %>
 
+<h1>this is User Index page</h1>
 
-<h1 style="text-align: center;">Users#index</h1>
+
+
+<%= link_to "Create Posts", posts_path, style:"border: 1px solid black; border-radius: 20px; border:none; padding: 2px; text-decoration: none; color:white; background-color: green"%><br>
+
+
+<% if user_signed_in? %> 
+<small><%= link_to "Sign-Out", destroy_user_session_path, data: {turbo_method: :delete} %></small>
+<% else %>
+ <small><%= link_to "Sign-In", new_user_session_path, style: " border: 1px solid black; border-radius: 20px; border:none; padding: 2px; text-decoration: none; color:white; background-color: green" %></small>
+ <small>
+   <h4>New User?
+   <%= link_to "Sign-Up", new_user_registration_path, style: " border: 1px solid black; border-radius: 20px; border:none; padding: 2px; text-decoration: none; color:white; background-color: green" %></h4>
+  </small>
+<% end %>
+
+
+ <%# style="text-align: center;">Users#index</h1>
 <div style="display: flex; justify-content: center; margin-bottom: 2%;">
   <table border="1px solid black" style="border-collapse: collapse;">
     <thead>
@@ -14,19 +31,20 @@
     </thead>
     <tbody>
       <% listinguser(@users).each do |user| %>
-      <tr >
-         <td style="padding: 8px;"><%= link_to user.username, user_path(user) %></td> 
-        <td style="padding: 8px;"><%= link_to "Edit", edit_user_path(user) %></td>
-        <td style="padding: 8px;"><%= link_to "Destroy", user_path(user), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }%></td>
-      </tr>
-      <% end %>
+<%#       <tr >
+         <td style="padding: 8px;"><%= link_to user.username, user_path(user) %>
+        <%# <td style="padding: 8px;"><%= link_to "Edit", edit_user_path(user) %>
+        <%# <td style="padding: 8px;"><%= link_to "Destroy", user_path(user), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }%>
+      <%# </tr> %>
+      <%# <% end %> 
       <%# <% if current_page?(controller: :users, action: :index) %>
         <%# <h3>This is users controller's action index</h3> %>
       <%#<% end %>
       <%# URLindex:- <%= url_for(action: :index)%> 
-    </tbody>
+    <%# </tbody>
   </table>
 </div>
 <div style="display: flex; justify-content: center; ">
   <%= link_to "New User", new_user_path, style: " border: 1px solid black; text-decoration: none; color:white; background-color: green" %>
-</div>
+<%# </div> %>
+ <%# %>

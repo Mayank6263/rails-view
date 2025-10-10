@@ -1,0 +1,57 @@
+Started GET "/users/sign_up" for ::1 at 2025-10-10 14:43:33 +0530
+  ActiveRecord::SchemaMigration Load (0.7ms)  SELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='RailsView'*/
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.3ms | GC: 0.0ms)
+  Rendered devise/shared/_links.html.erb (Duration: 0.7ms | GC: 0.0ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 6.2ms | GC: 0.0ms)
+  Rendered partials/_header.html.erb (Duration: 0.2ms | GC: 0.0ms)
+  Rendered partials/_footer.html.erb (Duration: 0.2ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 14.1ms | GC: 0.0ms)
+Completed 200 OK in 91ms (Views: 19.3ms | ActiveRecord: 9.8ms (0 queries, 0 cached) | GC: 1.4ms)
+
+
+Started POST "/users" for ::1 at 2025-10-10 14:43:58 +0530
+Processing by Devise::RegistrationsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"[FILTERED]", "name"=>"Mayank", "username"=>"Mayank75", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  TRANSACTION (0.3ms)  BEGIN /*action='create',application='RailsView',controller='registrations'*/
+  User Exists? (3.3ms)  SELECT 1 AS one FROM "users" WHERE "users"."email" = '75mayanksolanki@gmail.com' LIMIT 1 /*action='create',application='RailsView',controller='registrations'*/
+  User Create (0.9ms)  INSERT INTO "users" ("name", "username", "email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "sign_in_count", "current_sign_in_at", "last_sign_in_at", "current_sign_in_ip", "last_sign_in_ip", "confirmation_token", "confirmed_at", "confirmation_sent_at", "unconfirmed_email", "failed_attempts", "unlock_token", "locked_at", "created_at", "updated_at") VALUES ('Mayank', 'Mayank75', '75mayanksolanki@gmail.com', '$2a$12$pTqDlKm0D24oBnToQZ.ST.BytaD7alSXlGKCNZ3VQWrS/ZhawYliu', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, 'CNt9tLyTtL4wF4tfyT5v', NULL, '2025-10-10 09:13:58.924066', NULL, 0, NULL, NULL, '2025-10-10 09:13:58.923942', '2025-10-10 09:13:58.923942') RETURNING "id" /*action='create',application='RailsView',controller='registrations'*/
+  TRANSACTION (0.8ms)  COMMIT /*action='create',application='RailsView',controller='registrations'*/
+  Rendering devise/mailer/confirmation_instructions.html.erb
+  Rendered devise/mailer/confirmation_instructions.html.erb (Duration: 0.6ms | GC: 0.0ms)
+Devise::Mailer#confirmation_instructions: processed outbound mail in 11.9ms
+Delivered mail 68e8ce57139b_3b746fcc524da@rails.mail (1885.9ms)
+Date: Fri, 10 Oct 2025 14:43:59 +0530
+From: 0863cs201085@piemr.edu.in
+Reply-To: 0863cs201085@piemr.edu.in
+To: 75mayanksolanki@gmail.com
+Message-ID: <68e8ce57139b_3b746fcc524da@rails.mail>
+Subject: Confirmation instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!-- BEGIN app/views/devise/mailer/confirmation_instructions.html.erb --><p>Welcome 75mayanksolanki@gmail.com!</p>
+
+<p>You can confirm your account email through the link below:</p>
+
+<p><a href="http://localhost:3000/users/confirmation?confirmation_token=CNt9tLyTtL4wF4tfyT5v">Confirm my account</a></p>
+<!-- END app/views/devise/mailer/confirmation_instructions.html.erb -->
+Redirected to http://localhost:3000/
+Completed 303 See Other in 2241ms (ActiveRecord: 5.2ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/" for ::1 at 2025-10-10 14:44:00 +0530
+Processing by UsersController#index as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  Rendered users/index.html.erb within layouts/application (Duration: 1.2ms | GC: 0.0ms)
+  Rendered partials/_header.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered partials/_footer.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 2.2ms | GC: 0.0ms)
+Completed 200 OK in 16ms (Views: 3.2ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+

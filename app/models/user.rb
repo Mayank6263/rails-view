@@ -1,9 +1,23 @@
 class User < ApplicationRecord
-	has_secure_password
-	devise :database_authenticatable, :recoverable, :rememberable, :trackable, :validatable
-	validates :name, presence: true
-	validates :username, presence: true, uniqueness: true
-	validates :email, presence: true, uniqueness: true 
-	validates :password, presence: true
+  # Include default devise modules. Others available are:        :lockable, :omniauthable
+  # ,       , :timeoutable, :trackable 
+  validates :username, presence: true, uniqueness: { case_sensitive: false }
+  devise :database_authenticatable, :registerable, :validatable, :recoverable, :rememberable 
+  has_many :posts
 
+
+  def email_required?
+    false
+  end
+
+
+# Incase of recorverable and confirmable
+  # def email_changed?
+  #   false
+  # end
+  
+  # use this instead of email_changed? for Rails = 5.1.x
+  def will_save_change_to_email?
+    false
+  end
 end
