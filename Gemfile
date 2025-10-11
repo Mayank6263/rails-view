@@ -68,3 +68,5 @@ gem "byebug", "~> 12.0"
 gem "devise", "~> 4.9"
 
 # gem "bcrypt", "~> 3.1"
+
+gem "dotenv-rails", "~> 3.1"

@@ -9,7 +9,7 @@ default: &default
   port: 5432
   host: localhost
   username: postgres
-  password: rails
+  password: <%= ENV["PASS"] %>
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   timeout: 5000
 
