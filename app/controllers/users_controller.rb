@@ -29,15 +29,15 @@ class UsersController < ApplicationController
     # id = params.extract_value(:id)
     # @user = User.find(id)
 
-    # render plain: "name :- #{user[:name]}, 
-    # \nusername :- #{user[:username]}, 
+    # render plain: "name :- #{user[:name]},
+    # \nusername :- #{user[:username]},
     # \nE-mail :- #{user[:email]},"
     # \nparams? #{params}"
     # render plain: "params #{params[:user]}"
   end
 
   def edit
-    #only for get request 
+    #only for get request
   end
 
   def update
