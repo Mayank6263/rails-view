@@ -27,7 +27,7 @@ Devise.setup do |config|
 
 
   # use in mailing system for future
-  # config.mailer_sender = '75mayanksolanki@gmail.com'
+  config.mailer_sender = '75mayanksolanki@gmail.com'
 
 
 
