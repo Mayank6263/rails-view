@@ -70,3 +70,5 @@ gem "devise", "~> 4.9"
 # gem "bcrypt", "~> 3.1"
 
 gem "dotenv-rails", "~> 3.1"
+
+gem "active_model_serializers", "~> 0.10.15"

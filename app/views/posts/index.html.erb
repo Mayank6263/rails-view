@@ -1,2 +1,10 @@
 <h1>Posts#index</h1>
-<p>Find me in app/views/posts/index.html.erb</p>
+
+<% @posts.each do |post| %>
+<%# 	<h1>this is post helper</h1>
+	<%= name(post) %>
+	<%# <h2> this is column of post table </h2> %>
+	<%# <%= post.naam %> %>
+	<%# <h1>This is model </h1> %>
+	<%# <%= post.name %> %>
+<% end %>
