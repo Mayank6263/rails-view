@@ -3,4 +3,9 @@ class Post < ApplicationRecord
 	# def name
 	# 	 "this is name from modelsasasads"
 	# end
+
+	private
+	def check
+		puts 2
+	end
 end

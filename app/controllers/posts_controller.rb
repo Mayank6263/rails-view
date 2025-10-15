@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   def index
+    Post.first.check
   end
 
   def new
